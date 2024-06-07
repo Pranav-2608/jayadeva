@@ -1,17 +1,27 @@
+// App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Doctor from './components/Doctor';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './pages/Login.jsx';
+import ProtectedRoute from './components/ProtectedRoute';
+import Doctor from './pages/Doctor.jsx';
 
-function App() { 
+const App = () => {
   return (
-    <>
-  
-        <Routes>
-          <Route path="/" element={<Doctor/>} />
-        </Routes>
-
-    </>
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Doctor />
+            </ProtectedRoute>
+          }
+        />
+        {/* Add other protected routes similarly */}
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
