@@ -2,11 +2,11 @@ import { catchAsyncErrors } from "../middlewares/catchAsyncErrors.js";
 import { Prescription } from "../models/prescriptionSchema.js";
 import ErrorHandler from "../middlewares/error.js";
 import { generateToken } from "../utils/jwtToken.js";
-import cloudinary from "cloudinary";
 import { User } from "../models/userSchema.js";
 
 export const isPrescription = catchAsyncErrors(async (req, res, next) => {
   const { DoctorName,PatientName,Symptoms,Diagnosis,Treatment,Dosage } = req.body;
+  const email = req.user.email;
   if (
     !DoctorName || !PatientName || !Symptoms || !Diagnosis || !Treatment || !Dosage
   ) {
@@ -19,20 +19,22 @@ export const isPrescription = catchAsyncErrors(async (req, res, next) => {
   }
 
   const prescribe = await Prescription.create({
-    DoctorName,PatientName,Symptoms,Diagnosis,Treatment,Dosage   
-  });
-  res.status(200).json({
-    success: true,
-    message: "Message Sent!",
+    DoctorName,PatientName,Symptoms,Diagnosis,Treatment,Dosage ,role:"Patient"  
   });
 
-  generateToken(prescribe, "Prescription Created", 200, res);
+  return res.status(200).json({
+    success: true,
+    message: "Message Sent!",
+    prescribe
+  });
+
+  
 });
 
 export const precriptionByUserId = catchAsyncErrors(async (req, res, next) => {
   const userId = req.params.id; 
 
-  const prescriptions = await Prescription.find({ userId }); 
+  const prescriptions = await Prescription.findById(userId); 
 
   if (!prescriptions) {
     return next(new ErrorHandler("No messages found for this user ID", 404));
