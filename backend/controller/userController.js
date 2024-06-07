@@ -179,13 +179,46 @@ export const addNewDoctor = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
+// controllers/userController.js
+
+
+// controllers/userController.js
+
+
 export const getAllDoctors = catchAsyncErrors(async (req, res, next) => {
-  const doctors = await User.find({ role: "Doctor" });
+  const doctors = await User.find({ role: 'Doctor' }).populate('prescription');
   res.status(200).json({
     success: true,
     doctors,
   });
 });
+
+export const getPatients = catchAsyncErrors(async (req, res, next) => {
+  const patients = await User.find({ role: 'Patient' }).populate('prescription');
+  res.status(200).json({
+    success: true,
+    patients,
+  });
+});
+
+export const getAllDoctorsWithPrescriptions = catchAsyncErrors(async (req, res, next) => {
+  const doctors = await User.find({ role: 'Doctor' }).populate({
+    path: 'prescription',
+    populate: {
+      path: 'patientName',
+      select: 'firstName lastName'
+    }
+  });
+
+  res.status(200).json({
+    success: true,
+    doctors,
+  });
+});
+
+  
+
+
 
 export const getUserDetails = catchAsyncErrors(async (req, res, next) => {
   const user = req.user;

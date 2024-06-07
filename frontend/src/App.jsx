@@ -1,20 +1,21 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from './components/Navbar.jsx'
+import Footer from './components/Footer.jsx'
 import Home from "./Pages/Home";
 import Appointment from "./Pages/Appointment";
 import AboutUs from "./Pages/AboutUs";
-import Register from "./Pages/Register";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+import Register from "./Pages/Register"; // Ensure these imports are correct
+import Login from "./Pages/Login"; // Ensure these imports are correct
+import Prescriptions from './Pages/Prescription.jsx'; // Ensure the import path is correct
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { Context } from "./main";
-import Login from "./Pages/Login";
+
 const App = () => {
-  const { isAuthenticated, setIsAuthenticated, setUser } =
-    useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -33,7 +34,7 @@ const App = () => {
       }
     };
     fetchUser();
-  }, [isAuthenticated]);
+  }, [isAuthenticated, setIsAuthenticated, setUser]);
 
   return (
     <>
@@ -45,6 +46,7 @@ const App = () => {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/prescriptions" element={<Prescriptions />} />
         </Routes>
         <Footer />
         <ToastContainer position="top-center" />

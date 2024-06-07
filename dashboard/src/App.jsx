@@ -11,10 +11,11 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Sidebar from "./components/Sidebar";
 import AddNewAdmin from "./components/AddNewAdmin";
+import Prescriptions from './components/Prescriptions.jsx'
 import "./App.css";
 
 const App = () => {
-  const { isAuthenticated, setIsAuthenticated, admin, setAdmin } =
+  const { isAuthenticated, setIsAuthenticated, setAdmin } =
     useContext(Context);
 
   useEffect(() => {
@@ -46,6 +47,7 @@ const App = () => {
         <Route path="/admin/addnew" element={<AddNewAdmin />} />
         <Route path="/messages" element={<Messages />} />
         <Route path="/doctors" element={<Doctors />} />
+        <Route path="/prescriptions" element={<Prescriptions />} />
       </Routes>
       <ToastContainer position="top-center" />
     </Router>

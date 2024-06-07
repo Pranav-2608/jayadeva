@@ -1,31 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Prescription.css";
+import axios from "axios";
 import UploadDoc from "./UploadDoc";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-const Prescription = () => {
-  const fetchPrescription = () => {
-    navigate("/finalop", { state: formValue });
-  };
 
+const Prescription = () => {
   const navigate = useNavigate();
   const [formValue, setFormValue] = useState({
-    name: "",
+    patientName: "",
+    doctorName: "",
     symptoms: "",
     diagnosis: "",
     treatment: "",
-    medicineDosage: "",
+    dosage: "",
   });
 
   const handleChange = (e) => {
-    e.preventDefault();
-    const id = e.target.id;
-    setFormValue((prev) => ({ ...prev, [id]: e.target.value }));
+    const { id, value } = e.target;
+    setFormValue((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    try {
+      // Make a POST request to your backend API endpoint
+      const response = await axios.post(
+        "http://localhost:4000/api/v1/prescriptions/form",
+        formValue,
+        {
+          // Optionally, include additional configurations such as headers
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      // Handle successful response
+      console.log(response.data); // Log the response data
+      alert("Prescription submitted successfully!");
+    } catch (error) {
+      // Handle error
+      console.error("Error submitting prescription:", error);
+      alert("Failed to submit the prescription. Please try again.");
+    }
   };
 
   return (
@@ -37,7 +54,7 @@ const Prescription = () => {
         <form className="h-full" onSubmit={handleSubmit}>
           <div className="mb-4">
             <label
-              htmlFor="name"
+              htmlFor="patientName"
               className="block text-sm font-medium text-gray-700"
             >
               Patient Name
@@ -45,8 +62,23 @@ const Prescription = () => {
             <input
               onChange={handleChange}
               type="text"
-              id="name"
-              name="name"
+              id="patientName"
+              name="patientName"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="doctorName"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Doctor Name
+            </label>
+            <input
+              onChange={handleChange}
+              type="text"
+              id="doctorName"
+              name="doctorName"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
@@ -97,27 +129,20 @@ const Prescription = () => {
           </div>
           <div className="mb-4">
             <label
-              htmlFor="medicineDosage"
+              htmlFor="dosage"
               className="block text-sm font-medium text-gray-700"
             >
               Medicine Dosage
             </label>
             <textarea
               onChange={handleChange}
-              id="medicineDosage"
-              name="medicineDosage"
+              id="dosage"
+              name="dosage"
               rows="3"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             ></textarea>
           </div>
           <div className="flex justify-end">
-            <button
-              type="button"
-              className="fetch-btn"
-              onClick={fetchPrescription}
-            >
-              Fetch Prescription
-            </button>
             <button
               type="submit"
               className="ml-4 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -127,7 +152,7 @@ const Prescription = () => {
           </div>
         </form>
       </div>
-      <div className="mt-8 w-full max-w-lg">
+      <div className="mt-8 w-full max">
         <UploadDoc />
       </div>
     </div>

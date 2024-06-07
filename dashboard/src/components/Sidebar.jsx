@@ -10,6 +10,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { Context } from "../main";
 import { useNavigate } from "react-router-dom";
+import { LiaFilePrescriptionSolid } from "react-icons/lia";
 
 const Sidebar = () => {
   const [show, setShow] = useState(false);
@@ -52,6 +53,10 @@ const Sidebar = () => {
     navigateTo("/admin/addnew");
     setShow(!show);
   };
+  const gotoPrescriptionPage = () =>{
+    navigateTo("/prescriptions");
+    setShow(!show);
+  }
 
   return (
     <>
@@ -66,6 +71,7 @@ const Sidebar = () => {
           <IoPersonAddSharp onClick={gotoAddNewDoctor} />
           <AiFillMessage onClick={gotoMessagesPage} />
           <RiLogoutBoxFill onClick={handleLogout} />
+          <LiaFilePrescriptionSolid onClick={gotoPrescriptionPage}/>
         </div>
       </nav>
       <div

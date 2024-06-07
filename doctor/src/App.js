@@ -1,8 +1,8 @@
 import React from 'react';
 import {  Route, Routes } from 'react-router-dom';
-import Doctor from './components/Doctor';
-import FinalOp from './components/FinalOp';
-import Login from './components/Login';
+import Doctor from './components/Doctor.jsx';
+import FinalOp from './components/FinalOp.jsx';
+import Login from './components/Login.jsx';
 
 function App() { 
   return (
