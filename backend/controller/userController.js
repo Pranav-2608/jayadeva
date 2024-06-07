@@ -62,7 +62,6 @@ export const login = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHandler(`User Not Found With This Role!`, 400));
   }
   generateToken(user, "Login Successfully!", 201, res);
-  console.log("Running");
 });
 
 export const addNewAdmin = catchAsyncErrors(async (req, res, next) => {

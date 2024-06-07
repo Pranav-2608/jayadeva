@@ -17,16 +17,16 @@ const Login = () => {
       const response = await axios.post(
         'http://localhost:4000/api/v1/user/login',
         { email, password, confirmPassword, role:"Doctor" },
-        
         {
-          withCredentials: true,
           headers: { 'Content-Type': 'application/json' },
         }
       );
       console.log(response);
       toast.success(response.data.message);
+      localStorage.setItem('token', response.data.token); 
+      localStorage.setItem('userId', response.data.user._id); 
       localStorage.setItem('isAuthenticated', 'true');
-      navigate('/');
+      navigate('/doctor');
       setEmail('');
       setPassword('');
     } catch (error) {
