@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 const Prescription = () => {
   const fetchPrescription = () => {
-    alert("Fetch prescription functionality not implemented yet.");
+    navigate("/finalop", { state: formValue });
   };
 
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const Prescription = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/finalop", { state: formValue });
+    
   };
 
   return (
