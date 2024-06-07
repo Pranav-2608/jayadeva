@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Prescription.css';
@@ -40,6 +41,13 @@ const Prescription = () => {
     }
   };
 
+=======
+import React from 'react';
+import './Prescription.css';
+import UploadDoc from './UploadDoc';
+
+const Prescription = () => {
+>>>>>>> 18a6f6c1d9ba91849a022773e0f86e148db94d9d
   const fetchPrescription = () => {
     alert("Fetch prescription functionality not implemented yet.");
   };
@@ -114,6 +122,9 @@ const Prescription = () => {
             <button type="submit" className="ml-4 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Submit</button>
           </div>
         </form>
+      </div>
+      <div className="mt-8 w-full max-w-lg">
+        <UploadDoc />
       </div>
     </div>
   );
