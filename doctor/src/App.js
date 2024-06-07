@@ -1,8 +1,8 @@
 // App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './pages/Login.jsx';
-import Doctor from './pages/Doctor.jsx';
+import Login from './pages/Login';
+import Doctor from './pages/Doctor';
 
 const App = () => {
   return (
