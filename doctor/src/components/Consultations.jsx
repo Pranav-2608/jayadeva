@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 
 
+
 const Consultations = async() => {
 
     const { id } = useParams();
