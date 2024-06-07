@@ -8,7 +8,7 @@ import { AiFillCloseCircle } from "react-icons/ai";
 
 const Dashboard = () => {
   const [appointments, setAppointments] = useState([]);
-
+  const[doctors,setDoctors] = useState([]);
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
@@ -17,6 +17,8 @@ const Dashboard = () => {
           { withCredentials: true }
         );
         setAppointments(data.appointments);
+        
+       
       } catch (error) {
         setAppointments([]);
       }
@@ -44,6 +46,21 @@ const Dashboard = () => {
     }
   };
 
+  useEffect(() => {
+    const fetchDoctors = async () => {
+      try {
+        const { data } = await axios.get(
+          "http://localhost:4000/api/v1/user/doctors",
+          { withCredentials: true }
+        );
+        setDoctors(data.doctors);
+      } catch (error) {
+        toast.error(error.response.data.message);
+      }
+    };
+    fetchDoctors();
+  }, []);
+
   const { isAuthenticated, admin } = useContext(Context);
   if (!isAuthenticated) {
     return <Navigate to={"/login"} />;
@@ -53,12 +70,12 @@ const Dashboard = () => {
     <>
       <section className="dashboard page">
         <div className="banner">
-          <div className="firstBox">
+          <div className="firstBox" >
             <img src="/doc.png" alt="docImg" />
             <div className="content">
               <div>
                 <p>Hello ,</p>
-                <h5>
+                <h5 style={{color:"white"}}>
                   {admin &&
                     `${admin.firstName} ${admin.lastName}`}{" "}
                 </h5>
@@ -72,11 +89,11 @@ const Dashboard = () => {
           </div>
           <div className="secondBox">
             <p>Total Appointments</p>
-            <h3>1500</h3>
+            <h3>{appointments.length}</h3>
           </div>
-          <div className="thirdBox">
+          <div className="thirdBox" style={{color:"white"}}>
             <p>Registered Doctors</p>
-            <h3>10</h3>
+            <h3>{doctors.length}</h3>
           </div>
         </div>
         <div className="banner">

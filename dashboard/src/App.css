@@ -7,7 +7,7 @@
   font-family: "Montserrat", sans-serif;
 }
 body {
-  background: #3939d9f2;
+  background: #4D869C;
 }
 .container {
   padding: 0 100px;
@@ -19,7 +19,7 @@ body {
 }
 .page {
   margin-left: 120px;
-  background: #e5e5e5;
+  background: #a1d4e9;
   padding: 40px;
   height: 100vh;
   border-top-left-radius: 50px;
@@ -50,7 +50,7 @@ body {
   padding-top: 40px;
   padding-bottom: 60px;
   min-height: 100vh;
-  background: #e5e5e5;
+  background: #9ddbf3;
 
   display: flex;
   justify-content: center;
@@ -58,18 +58,18 @@ body {
   align-items: center;
 }
 .form-component h2 {
-  color: gray;
+  color: rgb(158, 158, 251);
   letter-spacing: 4px;
   margin-bottom: 30px;
 }
 .form-component h4 {
-  color: gray;
+  color: rgb(158, 158, 251);
   font-weight: 700;
   margin-bottom: 20px;
 }
 .form-component p {
   max-width: 750px;
-  color: gray;
+  color: rgb(158, 158, 251);
   margin-bottom: 20px;
   text-align: center;
 }
@@ -99,7 +99,7 @@ body {
   font-size: 24px;
   padding: 10px 10px 10px 40px;
   border-radius: 7px;
-  border: 1px solid gray;
+  border: 1px solid rgb(158, 158, 251);
 }
 .form-component button {
   padding: 10px 35px;
@@ -170,7 +170,10 @@ body {
   display: flex;
   align-items: center;
   border-radius: 20px;
-  background: #b5b5ff;
+  /* background:#4D869C;
+   */
+   background:#4D869C;
+
   padding: 20px 20px 0 10px;
 }
 .dashboard .banner:first-child .firstBox img {
@@ -191,17 +194,17 @@ body {
   font-size: 34px;
 }
 .dashboard .banner:first-child .firstBox .content div h5 {
-  color: #ff008d;
+  color: black;
 }
 .dashboard .banner:first-child .firstBox .content p {
   font-size: 16px;
 }
 .dashboard .banner:first-child .secondBox {
-  background: #3939d9f2;
+  background:#4D869C;
   color: #fff;
 }
 .dashboard .banner:first-child .thirdBox {
-  color: #ff008d;
+  color: black;
   background: #fff;
 }
 .dashboard .banner:first-child .secondBox,
@@ -213,6 +216,7 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 12px;
+  background:#4D869C;
 }
 .dashboard .banner:first-child .secondBox p,
 .dashboard .banner:first-child .thirdBox p {
@@ -352,6 +356,7 @@ body {
   align-items: center;
   color: #fff;
   padding: 70px 0;
+  background:#4D869C;
 }
 .sidebar svg {
   width: 50px;
@@ -360,7 +365,7 @@ body {
 }
 .sidebar svg:hover {
   background: #fff;
-  color: #3939d9f2;
+  color: #4D869C;
   border-radius: 8px;
   transition: 0.3s;
   cursor: pointer;
@@ -379,7 +384,7 @@ body {
 
 @media (max-width: 1208px) {
   .sidebar {
-    background: #3939d9f2;
+    background:#4D869C;
     left: -100%;
     transition: 0.3s;
   }
@@ -393,7 +398,7 @@ body {
     top: 30px;
     left: 40px;
     font-size: 34px;
-    background: #3939d9f2;
+    background: #4D869C;
     color: #fff;
     height: 40px;
     width: 40px;
@@ -416,7 +421,7 @@ body {
 }
 
 .doctors h1 {
-  color: #3939d9f2;
+  color: #4D869C;
   margin-bottom: 30px;
   font-size: 2.3rem;
 }
@@ -467,7 +472,7 @@ body {
 }
 
 .messages h1 {
-  color: #3939d9f2;
+  color: #4D869C;
   margin-bottom: 30px;
   font-size: 2.3rem;
 }
@@ -543,7 +548,7 @@ body {
   font-size: 24px;
   padding: 10px 10px 10px 40px;
   border-radius: 7px;
-  border: 1px solid gray;
+  border: 1px solid rgb(158, 158, 251);
 }
 .add-doctor-form button {
   padding: 10px 35px;
