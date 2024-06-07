@@ -6,7 +6,7 @@ import '../components/FinalOp.css';
 
 const FinalOp = () => {
   const { state } = useLocation();
-
+  console.log(state);
   const generatePdf = () => {
     const input = document.getElementById('pdfContent');
     html2canvas(input)
@@ -27,7 +27,7 @@ const FinalOp = () => {
     <div>
       <div id="pdfContent" className="prescription">
         <header>
-          <h1>Hospital Name</h1>
+          <h1>Jayadeva Hospital</h1>
           <p>Address Line 1, Address Line 2, City, State, ZIP</p>
           <p>Phone: (123) 456-7890 | Email: contact@hospital.com</p>
         </header>
@@ -35,9 +35,9 @@ const FinalOp = () => {
         <section className="patient-info">
           <h2>Patient Information</h2>
           <p><strong>Name:</strong> {state.name}</p>
-          <p><strong>Age:</strong> {state.age}</p>
+          {/* <p><strong>Age:</strong> {state.age}</p>
           <p><strong>Gender:</strong> {state.gender}</p>
-          <p><strong>Address:</strong> {state.address}</p>
+          <p><strong>Address:</strong> {state.address}</p> */}
         </section>
 
         <section className="prescription-details">
