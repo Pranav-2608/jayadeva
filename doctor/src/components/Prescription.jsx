@@ -2,6 +2,7 @@ import React from "react";
 import "./Prescription.css";
 import UploadDoc from "./UploadDoc";
 import { useState } from "react";
+import axios from "axios"
 import { useNavigate } from "react-router-dom";
 const Prescription = () => {
   const fetchPrescription = () => {
@@ -23,9 +24,24 @@ const Prescription = () => {
     setFormValue((prev) => ({ ...prev, [id]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =async (e) => {
     e.preventDefault();
-    
+    try {
+     
+      const response = await axios.post('http://localhost:4000/api/v1/prescriptions', formValue, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      // Handle successful response
+      console.log(response.data); // Log the response data
+      alert('Prescription submitted successfully!');
+    } catch (error) {
+      // Handle error
+      console.error('Error submitting prescription:', error);
+      alert('Failed to submit the prescription. Please try again.');
+    }
   };
 
   return (
