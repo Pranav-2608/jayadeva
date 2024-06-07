@@ -13,7 +13,7 @@ const Footer = () => {
     {
       id: 2,
       day: "Tuesday",
-      time: "12:00 PM - 12:00 AM",
+      time: "12:00 PM - 9:00 AM",
     },
     {
       id: 3,
@@ -23,12 +23,12 @@ const Footer = () => {
     {
       id: 4,
       day: "Thursday",
-      time: "9:00 AM - 9:00 PM",
+      time: "10:00 AM - 10:00 PM",
     },
     {
       id: 5,
-      day: "Monday",
-      time: "3:00 PM - 9:00 PM",
+      day: "Friday",
+      time: "4:00 PM - 9:00 PM",
     },
     {
       id: 6,
@@ -43,7 +43,7 @@ const Footer = () => {
         <hr />
         <div className="content">
           <div>
-            <img src="/logo.png" alt="logo" className="logo-img"/>
+            <img src="/jayadevaLogo2.png" alt="logo" className="logo-img"/>
           </div>
           <div>
             <h4>Quick Links</h4>
@@ -72,11 +72,11 @@ const Footer = () => {
             </div>
             <div>
               <MdEmail />
-              <span>zeelab@gmail.com</span>
+              <span>jay@gmail.com</span>
             </div>
             <div>
               <FaLocationArrow />
-              <span>Karachi, Pakistan</span>
+              <span>Bengaluru, India</span>
             </div>
           </div>
         </div>
