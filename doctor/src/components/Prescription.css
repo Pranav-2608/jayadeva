@@ -1,0 +1,87 @@
+/* Container styling */
+.h-full {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f4f8;
+    padding: 20px;
+  }
+  
+  /* Form container */
+  .bg-white {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form heading */
+  .text-2xl {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333333;
+    margin-bottom: 20px;
+  }
+  
+  /* Form labels */
+  .block {
+    display: block;
+    font-size: 0.875rem;
+    color: #4a5568;
+    margin-bottom: 5px;
+  }
+  
+  /* Form inputs */
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e0;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s;
+  }
+  
+  input:focus, textarea:focus {
+    border-color: #3182ce;
+    outline: none;
+  }
+  
+  /* Submit button */
+  .bg-indigo-600 {
+    background-color: #4a90e2;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .bg-indigo-600:hover {
+    background-color: #3b82db;
+  }
+  
+  /* Fetch button */
+  .fetch-btn {
+    background-color: #38a169;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .fetch-btn:hover {
+    background-color: #2f855a;
+  }
+  
+  /* Form actions */
+  .flex.justify-end {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  

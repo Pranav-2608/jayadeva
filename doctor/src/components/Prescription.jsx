@@ -1,8 +1,14 @@
 import React from 'react';
+import './Prescription.css';
+import UploadDoc from './UploadDoc';
 
 const Prescription = () => {
+  const fetchPrescription = () => {
+    alert("Fetch prescription functionality not implemented yet.");
+  };
+
   return (
-    <div className="h-full flex flex-col mx-auto border border-black   rounded-lg w-full  items-center justify-center bg-blue-100">
+    <div className="h-full flex flex-col mx-auto w-full items-center justify-center bg-blue-100">
       <div className="bg-white p-8 rounded shadow-md w-full max-w-lg">
         <h2 className="text-2xl font-bold mb-6 text-center">Patient Prescription Form</h2>
         <form action="#" method="POST" className='h-full'>
@@ -27,9 +33,13 @@ const Prescription = () => {
             <textarea id="medicine-dosage" name="medicine_dosage" rows="3" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
           </div>
           <div className="flex justify-end">
-            <button type="submit" className="px-4 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Submit</button>
+            <button type="button" className="fetch-btn" onClick={fetchPrescription}>Fetch Prescription</button>
+            <button type="submit" className="ml-4 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Submit</button>
           </div>
         </form>
+      </div>
+      <div className="mt-8 w-full max-w-lg">
+        <UploadDoc />
       </div>
     </div>
   );
