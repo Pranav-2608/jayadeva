@@ -17,7 +17,7 @@ const Consultations = async() => {
   
     const fetchPrescriptions = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/v1.prescriptions/${id}`);
+        const response = await axios.get(`http://localhost:4000/api/v1/prescriptions/${id}`);
         setPrescriptions(response.data.prescriptions);
         setLoading(false);
       } catch (error) {
