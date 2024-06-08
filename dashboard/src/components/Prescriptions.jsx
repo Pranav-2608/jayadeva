@@ -42,7 +42,7 @@ const Prescriptions = () => {
                       <p><strong>Treatment:</strong> {prescription?.Treatment}</p>
                       <p><strong>Diagnosis:</strong> {prescription?.Diagnosis}</p>
                       <p><strong>Dosage:</strong> {prescription?.Dosage}</p>
-                      <p><strong>Patient:</strong> {prescription?.patientName?.firstName} {prescription?.patientName?.lastName}</p>
+                      <p><strong>Patient:</strong> Mr. {prescription?.patientName} </p>
                     </div>
                   </div>
                 ))

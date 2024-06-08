@@ -12,6 +12,7 @@ body {
     border-radius: 8px;
     max-width: 800px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
   }
   
   header {
@@ -23,26 +24,31 @@ body {
     margin: 0;
     font-size: 24px;
     color: #333;
+    margin-top: 20px;
   }
   
   header p {
     margin: 5px 0;
     color: #555;
+    margin-top: 20px;
   }
   
   section {
     margin-bottom: 20px;
+    margin-top: 20px;
   }
   
   section h2 {
     margin-bottom: 10px;
     font-size: 20px;
     color: #444;
+    margin-top: 20px;
   }
   
   section p {
     margin: 5px 0;
     color: #333;
+    margin-top: 20px;
   }
   
   section ul {
