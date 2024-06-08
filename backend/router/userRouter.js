@@ -28,6 +28,6 @@ router.get("/admin/me", isAdminAuthenticated, getUserDetails);
 router.get("/patient/logout", isPatientAuthenticated, logoutPatient);
 router.get("/admin/logout", isAdminAuthenticated, logoutAdmin);
 router.route('/user/doctors').get(getAllDoctorsWithPrescriptions);
-router.route('/user/patients').get(getPatients);
+router.route('/user/patients/:userId').get(getPatients);
 
 export default router;

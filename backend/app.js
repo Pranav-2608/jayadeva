@@ -36,6 +36,21 @@ app.use("/api/v1/message", messageRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/appointment", appointmentRouter);
 app.use("/api/v1/prescriptions", prescriptionRouter);
+// Define a route to handle GET requests to fetch a specific patient by their ID
+app.get('/api/v1/user/patient/:userId', async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const patient = await User.findById(userId).populate('prescription');
+    if (!patient) {
+      return res.status(404).json({ success: false, message: 'Patient not found' });
+    }
+    res.status(200).json({ success: true, patient });
+  } catch (error) {
+    console.error('Error fetching patient:', error);
+    res.status(500).json({ success: false, message: 'Internal Server Error' });
+  }
+});
+
 
 dbConnection();
 

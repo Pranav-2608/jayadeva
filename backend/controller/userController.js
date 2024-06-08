@@ -194,12 +194,14 @@ export const getAllDoctors = catchAsyncErrors(async (req, res, next) => {
 });
 
 export const getPatients = catchAsyncErrors(async (req, res, next) => {
-  const patients = await User.find({ role: 'Patient' }).populate('prescription');
+  const userId = req.params.userId; // Corrected
+  const patients = await User.findById(userId).populate('prescription');
   res.status(200).json({
     success: true,
     patients,
   });
 });
+
 
 export const getAllDoctorsWithPrescriptions = catchAsyncErrors(async (req, res, next) => {
   const doctors = await User.find({ role: 'Doctor' }).populate({
