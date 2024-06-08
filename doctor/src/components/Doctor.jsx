@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { MdDashboard } from "react-icons/md";
 import { FaPrescriptionBottleAlt } from "react-icons/fa";
-import { MdAddToQueue } from "react-icons/md";
+import { MdAddToQueue, } from "react-icons/md";
 import Dashboard from '../components/Dashboard';
 import Prescription from '../components/Prescription';
 import Queue from '../components/Queue';
 import Calendar from '../components/Calendar';
 import './Doctor.css'; // Import the CSS file
+import {AiOutlineFileImage} from "react-icons/ai";
 
 const features = [
   {
@@ -18,8 +19,8 @@ const features = [
     logo: <FaPrescriptionBottleAlt />,
   },
   {
-    name: "Queue",
-    logo: <MdAddToQueue />,
+    name: "Retrive Data",
+    logo: <AiOutlineFileImage />,
   }
 ];
 
@@ -43,7 +44,7 @@ export default function Doctor() {
         {
           active === "Dashboard" ? (<Dashboard />)
             : active === "Prescription" ? (<Prescription />)
-            : active === "Queue" ? (<Queue />)
+            : active === "Retrive Data" ? (<Queue />)
             : (<Calendar />)
         }
       </div>
