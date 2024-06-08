@@ -6,7 +6,8 @@ import '../components/FinalOp.css';
 
 const FinalOp = () => {
   const { state } = useLocation();
-  console.log(state);
+  const res = state.formValue;
+  console.log("This is the objecctt we are talking about",state);
   const generatePdf = () => {
     const input = document.getElementById('pdfContent');
     html2canvas(input)
@@ -34,7 +35,7 @@ const FinalOp = () => {
 
         <section className="patient-info">
           <h2>Patient Information</h2>
-          <p><strong>Name:</strong> {state.name}</p>
+          <p><strong>Name:</strong> {res?.patientName}</p>
           {/* <p><strong>Age:</strong> {state.age}</p>
           <p><strong>Gender:</strong> {state.gender}</p>
           <p><strong>Address:</strong> {state.address}</p> */}
@@ -42,25 +43,19 @@ const FinalOp = () => {
 
         <section className="prescription-details">
           <h2>Prescription</h2>
-          <p><strong>Symptoms:</strong> {state.symptoms}</p>
-          <p><strong>Diagnosis:</strong> {state.diagnosis}</p>
-          <p><strong>Treatment:</strong> {state.treatment}</p>
-          <p><strong>Medicine & Dosage:</strong></p>
-          <ul>
-            {state.medicineDosage.split('\n').map((med, index) => (
-              <li key={index}>{med}</li>
-            ))}
-          </ul>
+          <p><strong>Symptoms:</strong> {res?.symptoms}</p>
+          <p><strong>Diagnosis:</strong> {res?.diagnosis}</p>
+          <p><strong>Treatment:</strong> {res?.treatment}</p>
+          <p><strong>Medicine & Dosage:</strong>{res?.dosage}</p>
         </section>
 
         <section className="doctor-info">
           <h2>Doctor's Information</h2>
-          <p><strong>Doctor's Name:</strong> Dr. Jane Smith</p>
-          <p><strong>Specialization:</strong> General Physician</p>
+          <p><strong>Doctor's Name:</strong>{res?.doctorName}</p>
           <p><strong>Signature:</strong> ______________________</p>
         </section>
       </div>
-      <button onClick={generatePdf}>Generate PDF</button>
+      <button onClick={generatePdf} className='border-black text-red-900'>Generate PDF</button>
     </div>
   );
 };

@@ -53,4 +53,8 @@ body {
   section ul li {
     margin-bottom: 5px;
   }
+
+  .setMargin{
+    margin: auto;
+  }
   
